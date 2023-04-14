@@ -37,7 +37,8 @@ These ports are defined in the /etc/services file on Linux systems.
 
 ### Q2: Look at the resulting packets with Wireshark. What is sent and received? How are the different scans done (what is being sent)? Do the scanned systems behave differently? Why?
 
-
+1. SYN 
+2. 
 
 
 

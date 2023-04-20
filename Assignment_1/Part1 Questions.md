@@ -71,5 +71,4 @@ Nmap scans may trigger security alerts or be blocked altogether. This can cause 
 
 **most interesting ones**: open|filtered, closed|filtered
 
-**least interesting one**: closed
-
+**least interesting one**: closed/

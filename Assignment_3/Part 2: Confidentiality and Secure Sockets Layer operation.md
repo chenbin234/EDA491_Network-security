@@ -16,7 +16,9 @@ openssl s_client -connect localhost:443 -tls1_2
 
 ```shell
 # using the right root certificate to verify the server's certificate
+openssl s_client -CAfile /home/eda491/netsec-lab3/cahome/cacert.pem -connect 127.0.0.1:443 -tls1_2
 
+# or use the following command
 openssl s_client -CAfile /home/eda491/netsec-lab3/netsec-ca.pem -connect 127.0.0.1:443 -tls1_2
 ```
 
@@ -84,26 +86,52 @@ I didn’t expect this to work, since the certificate has expired, it should not
 
 ### Q11: Identify the different TLS messages in Wireshark: which messages are sent? Illustrate your answer with a diagram.
 
+![Q11_1](images/Q11_1.png)
 
+Note: The diagram below copy from the book ‘Cryptography and Network Security Principles and Practice’ by William Stallings, page 543
+
+![image-20230503163859848](images/image-20230503163859848.png)
+
+**Step 1:** **Client Hello** **-** The client initiates the handshake process by sending a Client Hello message to the server. This message includes the TLS version number, a list of cipher suites and compression methods supported by the client, and a random value that is used to generate the key material for the connection.
+
+**Step 2: Server -**
+
+- Upon receiving the Client Hello message, the server responds with a **Server Hello message** that includes the TLS version number, the cipher suite and compression method selected for the connection, and a random value used to generate the key material.
+
+- The server sends its **certificate** to the client to authenticate its identity.
+
+- the server may send additional information to the client to establish the **key exchange** parameters for the connection. For example, if the server is using Diffie-Hellman key exchange, it may send its public key to the client.
+
+- The server sends a **Server Hello Done message** to indicate that the server hello phase is complete.
+
+**Step 3: Client -** 
+
+Upon receipt of the server_done message, the client should verify that the server provided a valid certificate (if required) and check that the server_hello parameters are acceptable. If all is satisfactory, the client sends one or more messages back to the server.
+
+- **client_key_exchange message:** The client generates a premaster secret key, encrypts it using the server's public key, and sends it to the server in a Client Key Exchange message.
+- **change_cipher_spec message:** Both the client and server send a Change Cipher Spec message to indicate that they will start using the newly negotiated cipher suite and encryption parameters for the remainder of the session.
+- **Encrypted Handshake Message:**
+
+
+
+**Step 4: Server -** 
+
+- **New Session ticket:**
+- **change_cipher_spec message:**
+- **Encrypted Handshake Message:**
 
 
 
 ### Q12: Which ciphers are proposed by your client. Where can we find this information?
 
-
-
-
+![Q12_1](images/Q12_1.png)
 
 ### Q13: Which cipher is selected by the server? Why is it selected? Where can we find this information?
 
+![Q13_1](images/Q13_1.png)
 
-
-
-
+The server may prefer to use certain cipher suites that are more secure and more secure or efficient.
 
 ### Q14: Which TLS message do you think contains the string “TESTMESSAGE”?
 
-
-
-
-
+In application data packet above.

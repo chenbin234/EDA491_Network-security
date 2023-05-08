@@ -36,7 +36,7 @@ Here's **how an MITM attack could occur** after the attacker knows the CA's priv
 
 - **Revocation status:** The OpenSSL library checks the revocation status of the server's digital certificate to ensure that it has not been revoked by the issuing CA.
 
-
+- **Signature**
 
 
 
@@ -46,14 +46,13 @@ Three different methods exist for creating a certificate. The methods are called
 
 ```shell
 # generates a new 4096-bit RSA private key and encrypts it using AES256 symmetric encryption with a password. 
-
 openssl genpkey -aes256 -algorithm RSA -out nsec08.key -aes256 -pkeyopt rsa_keygen_bits:4096
 
 # create a new certificate request (nsec08.csr) using the private key (nsec08.key). The request will be signed with a SHA256 message digest and the subject of the certificate will contain the specified fields: O=NETSEC, OU=nsec08, and CN=kali.
 openssl req -new -key nsec08.key -out nsec08.csr -sha256 -subj "/O=NETSEC/OU=nsec08/CN=kali"
 
 # print the certificate request in human readable form, and verify that you provided the correct parameters
-openssl req -in nsecXX.csr -text
+openssl req -in nsec08.csr -text
 ```
 
 ![Q18_1](images/Q18_1.png)

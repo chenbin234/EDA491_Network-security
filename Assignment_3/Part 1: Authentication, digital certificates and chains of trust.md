@@ -14,7 +14,7 @@ An **intermediate certificate**, also known as an intermediate CA (Certificate A
 
 In a public key infrastructure (PKI), the root certificate is the top-level certificate that is used to verify the authenticity of a digital certificate. However, root certificates are typically kept offline and are not used for day-to-day operations. Instead, intermediate certificates are used to issue and verify SSL/TLS certificates, which are used to secure web traffic, email communication, and other online interactions.
 
-Intermediate certificates are necessary because they allow for a hierarchical trust model, where multiple levels of certificates are used to establish trust and verify the identity of a website or organization. This helps to ensure that sensitive information is protected and that users can trust the websites they are interacting with.
+###### Intermediate certificates are necessary because they allow for a hierarchical trust model, where multiple levels of certificates are used to establish trust and verify the identity of a website or organization. This helps to ensure that sensitive information is protected and that users can trust the websites they are interacting with.
 
 ### Q2: Who is the issuer of the certificate? (answer with the Common Name)
 

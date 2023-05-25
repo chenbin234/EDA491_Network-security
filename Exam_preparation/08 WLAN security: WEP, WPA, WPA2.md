@@ -44,5 +44,12 @@ TKIP makes sure encryption keys change over time. It extends the IV (with a new 
 - Passwords are hashed 4096 times to make it harder to do offline searches
 - Secrets not used directly.
 
+#### 8. Support 802.1x authentication with a radius server, what does that mean?
+
+1. 802.1x is port based authentication, where a client does not get access to the network unless authenticated and authorized.
+2. Instead of using a shared key, Users can be authenticated through the radius server using individual secret or token cards such as SecureID.
+
+
+
 
 

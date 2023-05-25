@@ -41,5 +41,45 @@
 
 
 
+(A) is the most secure placement, The firewall can have very detailed rules about communication with the web and mail server and can isolate them completely from each other.
+
+(B) is the least secure solution. A cracked server makes it possible for an attacker to listen to all traffic in and out from the corporate network.
+
+(C) is better than (B) but a cracked Web server allows the attacker to listen to all email traffic since they share the network. Link-layer level attack also work between these two servers. 
+
+
+
+### 7. Ingress and egress of firewall
+
+**Ingress: filter incoming messages**
+
+- Drop incoming datagrams with internal addresses as source
+- Drop incoming datagrams with invalid flags (e.g. SYN and FIN)
+
+**Egress: filter outgoing messages**
+
+- Drop outgoing ICMP echo reply messages
+- Drop outgoing datagram containing reserved addresses (e.g. 10.0.0.0/8)
+
+
+
+### 8. NAT gateway
+
+**8.1 What level of protection do they offer?**
+
+A NAT gateway hide and isolate internal systems from outside networks. A service not present in its translation table is not accessible from the outside.
+
+**8.2 What do they lack which normal stateful inspection firewalls have?**
+
+It does not inspect traffic that is allowed to traverse.
+
+**8.3 Give an example where a NAT gateway can or should be used.**
+
+- NAT gateways are often used at home where only one official IP address is available and more devices are present.
+
+- It is also popular by companies since NAT hide internal structure of the network and the system’s real IP address inside.
+
+
+
 
 

@@ -31,3 +31,18 @@ TKIP makes sure encryption keys change over time. It extends the IV (with a new 
 1. port-based authentication is a link-level mechanism where a client does not get access to the network  unless authenticated and authorized. 
 2. It uses Radius for central authentication and authorization. after user authentication, the port is opened and all traffic is allowed from this port.
 
+#### 6. Many protocols such as WEP, WPA and WPA2 use an IV (initialization vector). Why? Explain how it is used!
+
+- The IV makes sure that two identical packages are encrypted differently.
+- This is done with the IV + key as input to the pseudo random generator (each IV creates a different stream which is XOR with the plaintext)
+
+#### 7. The 802.11i framework (WPA2) offers substantially better security than WEP. Mention three improvements in this protocol!
+
+- AES instead of RC4 encryption
+- Session key introduced
+- When all IVs are used new session keys are negotiated
+- Passwords are hashed 4096 times to make it harder to do offline searches
+- Secrets not used directly.
+
+
+

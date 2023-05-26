@@ -24,3 +24,17 @@ TLS or SSH, easy to configure, client can run as an application without administ
 
 - The purpose of IPsec tunnel is to create a secure tunnel between two sites, the original packet is encrypted to protect its networking address scheme and route info. The new IP header contains the source and destination address of VPN end-points, to make sure intermediate routers can properly route the packet to destination.
 - The new address is not protected by MAC, since it is not sensitive info, even if the attacker can modify the IP address, the message inside cannot be read.
+
+
+
+#### 5. IPsec uses packet numbering, see the picture. For what purpose?
+
+It protects against replay attacks by discarding duplicates, but unlike TCP, it allows packets to be missing.
+
+
+
+#### 6. The ESP header differs depending on what mode is used (see header on last page). Why is it possible to keep the original header in transport mode but not in tunnel mode?
+
+In tunnel mode, it is not the final receiver of the datagram that should receive the encrypted datagram but a IPsec gateway that decrypts it and forwards it to its final destination.
+
+Tunnel mode is often used for site-to-site encryption. it is to create a secure tunnel between two IPsec gateways.

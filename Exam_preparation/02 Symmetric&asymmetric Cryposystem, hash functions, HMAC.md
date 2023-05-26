@@ -16,3 +16,12 @@
 
 
 
+#### 2. Many security protocols support sending messages without encryption (encryption=NULL) and still protect packets against modification. 
+
+- The protocols use a cryptographic or keyed checksum (e.g. HMAC, short for hash-based Message Authentication Code) where a secret key is used together with the plaintext: $hash(secret key | plaintext)$.
+
+- It requires the key to be known by both to verify and to create hashes.
+- This protects the integrity of the message even if it is not encrypted.
+
+
+

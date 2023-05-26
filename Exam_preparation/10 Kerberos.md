@@ -1,4 +1,4 @@
-#### 1. Challenge response authentication, How does it work? 
+#### 1. Challenge response authentication, How does it work?
 
 - The server generates a random challenge and sends it to the client.
 - The client performs a calculation using the received challenge and the user’s password and sends the result back to the server, the calculation can involve cryptographic algorithms.
@@ -40,3 +40,11 @@ Smart card is a pocket-sized card that contains an embedded integrated circuit c
 1. Symmetric keys are easier to work with than asymmetric keys and eliminates complicated calculations.
 2. This makes servers stateless and many servers can share the workload without consulting each other or a common database.
 3. Application servers must understand the ticket concept and how they should be used.
+
+
+
+#### 5. The Kerberos server is stateless which means that it does not keep track of the users it has authenticated. It is still possible for a user to come back to it and request tickets to services without repeating the authentication process. How is this possible?
+
+When a user initially authenticates with the kerberos server, the server generates a TGT (Ticket Granting Ticket) for the user, the TGT is a long-lived ticket that is used to obtain SGT (Service Granting Ticket) without re-authenticating for a certain period of time. 
+
+The TGT contains the user’s indetity,  timestamp, and is encrypted with the user’s long-term key and password, It is encrypted by the server and cannot be decrypted by anyone else.

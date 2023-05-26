@@ -50,5 +50,11 @@ It is not useful since the hash (MD5) contains random data, it is infeasible to 
 
 
 
+#### 6. Performing password authentication over networks is always problematic. Instead of sending a password in clear-text, challenge response authentication is a better method. How does it work? What is its main weakness?
 
+Passwords can not be sent in cleartext over the network (sniffed, replayed), One solution is to use challenges that the client encrypts and send back to the server which can verify that the client is in possession of the password.
+
+A major weakness is  that an attacker can see both the challenge and the cleartext and may do an exhaustive search of the password.
+
+Another weakness is that the server needs to store the passwords in cleartext.
 

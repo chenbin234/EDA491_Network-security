@@ -28,3 +28,17 @@ Also to guarantee freshness and prevent replays of older sessions.
 
 It uses implicit sequence numbers, i.e. both sides counts numbers of packets and this counter is included when calculate MAC. This ensures that replays are not possible.
 
+
+
+#### 6. A certificate can be used to identify a web server when using SSL/TLS. Describe what happens if an attacker tries to impersonate the server (for example for mybank.com) by faking the DNS reply, which causes the client to connect to the attacker’s computer/IP address instead of to the correct server?
+
+It can lead to a potential security known as “Man-In-The-Middle” attack.
+
+1. The attacker intercepts the DNS query made by the client, in this case “my bank.com”
+2. The attacker response to the DNS query with a fake DNS reply, directing the client to connect to their own computer.
+3. The client initiate the TLS handshake with the attacker’s server, the handshake involves exchanging cryptographic keys and verify the server’s identity.
+4. The attacker’s server sends a fake certificate, claims to be the legitimate server for ‘my bank.com’.
+5. The client will verify if the certificate is signed by a trusted certificate authority (CA) and if the domain name matches the one he intends to connect to.
+   - if the attacker managed to obtain a fraudulent certificate signed by a trusted CA, then the certificate may pass the verfication process.
+   - If the server authentication fails, the web browser displays a warning message.
+6. The client establishes a encrypted connection with the attacker’s server. the attacker can now read and modify the data tramsmitted between the client and server whereas the client may do not know about that.

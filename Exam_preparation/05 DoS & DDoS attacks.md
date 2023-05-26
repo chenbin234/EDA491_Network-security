@@ -1,10 +1,10 @@
-## 1. Link-layer attack
+#### 1. Link-layer attack
 
 **ARP spoofing: **ARP is used to get a system’s MAC address given its IP address and no security is present in the protocol. An attack can easily listen to an ARP request and send a reply to the requesting host before the real receiver responds. Normally the first reply will be used by hosts. 
 
 
 
-## 2. Network-layer attack 
+#### 2. Network-layer attack
 
 **The LAND attack:** The attackers spoofs the source IP address of the packets to match the destination IP address. The attacker also sets the source and destination port numbers to be the same, causing the target system to believe that it is receiving packets from itself. As a result, some systems used to crash when they tried to respond to themselves.
 
@@ -19,7 +19,7 @@
 - An oversized IP datagram can be created that exceeds 65,535 bytes by IP fragmentation.
 - Where a large IP datagram is divided into several smaller fragments to fit the MTU of the network, and the fragments are reassembled at the destination.
 
-## 3. Transport-layer attack
+#### 3. Transport-layer attack
 
 A possibility is to try to exhaust the connection table of a receiving host’s TCP stack by never finishing the TCP three way handshake process. By sending a SYN packet only and never response to the SYN-ACK, the receiver waits. By sending lots of such requests, a DOS attack is possible since the table is full and no one else can open new connections.
 
@@ -59,7 +59,7 @@ The attacker must be using a valid IP address to receive the [SYN, ACk] with the
 
 
 
-## 4. Different scan
+#### 4. Different scan
 
 - **SYN scan:** send a SYN flag set packet as if you are going to open a real connection and wait for a response.
   - A [SYN, ACK] indicates the port is open
@@ -85,20 +85,20 @@ The attacker must be using a valid IP address to receive the [SYN, ACk] with the
 
 
 
-## 5. UDP scanning is often harder to do than TCP scanning. Why?
+#### 5. UDP scanning is often harder to do than TCP scanning. Why?
 
 TCP responds with a SYN/ACK to a connection request but UDP just delivers the data to the application and we don’t know how it will react.
 
 
 
-## 6.  Another possibility for an attacker to perform a DoS attack is to try to trigger implementation bugs in protocols. How can this be done? Give two practical examples!
+#### 6.  Another possibility for an attacker to perform a DoS attack is to try to trigger implementation bugs in protocols. How can this be done? Give two practical examples!
 
 - Abuse header fields, form example send TCP segments with invalid lengths that differ from the real length.
 - send IP packets with the source address equal to the address of the receiver.
 
 
 
-## 7. What can be a possible reason for an attacker to send TCP segments with both the SYN and FIN flag set at the same time?
+#### 7. What can be a possible reason for an attacker to send TCP segments with both the SYN and FIN flag set at the same time?
 
 1. To test the stability of the IP stack by sending illegal and malformed packets.
 
@@ -106,7 +106,7 @@ TCP responds with a SYN/ACK to a connection request but UDP just delivers the da
 
 
 
-## 8. What is required for an attacker to be able to insert data into another user’s ongoing TCP session to a web server if the attacker cannot see the traffic between the parties (i.e. the attacker is not a MITM)? Assume the connection is not encrypted and that the attacker is able to guess the IP addresses of the two parties, how easy or complicated is it to perform such an attack and succeed in inserting own data to their session?
+#### 8. What is required for an attacker to be able to insert data into another user’s ongoing TCP session to a web server if the attacker cannot see the traffic between the parties (i.e. the attacker is not a MITM)? Assume the connection is not encrypted and that the attacker is able to guess the IP addresses of the two parties, how easy or complicated is it to perform such an attack and succeed in inserting own data to their session?
 
 - The attacker must guess the TCP sequence numbers.
 - In addition, the source port number must be guessed, and since it is a web server, the destination port number is known (80).
@@ -114,13 +114,15 @@ TCP responds with a SYN/ACK to a connection request but UDP just delivers the da
 
 
 
-## 9. Is it easier or harder to do this attack if the communing parties are located on different continents than very close to each other? Assume that the connection speed is more or less equal. Explain your reasoning!
+#### 9. Is it easier or harder to do this attack if the communing parties are located on different continents than very close to each other? Assume that the connection speed is more or less equal. Explain your reasoning!
 
 - It will be easier. A connection with longer delays must allow for more packets to be in transit to optimize performance. 
 
 - It also means that such a connection has a larger receive window, thus maybe only 8 bits of the TCP sequence number has to be guessed.
 
 
+
+#### 10. The SMURF attack uses ICMP echo packets and is a magnification attack. Explain how it works and how firewalls connected to the Internet should be configured to prevent such attacks.
 
 
 

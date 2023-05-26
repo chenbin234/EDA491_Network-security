@@ -42,3 +42,17 @@ It can lead to a potential security known as “Man-In-The-Middle” attack.
    - if the attacker managed to obtain a fraudulent certificate signed by a trusted CA, then the certificate may pass the verfication process.
    - If the server authentication fails, the web browser displays a warning message.
 6. The client establishes a encrypted connection with the attacker’s server. the attacker can now read and modify the data tramsmitted between the client and server whereas the client may do not know about that.
+
+
+
+#### 7. A well-known problem in many security protocols is that an attacker in a short time can request lots of sessions with faked IP addresses and force a server to constantly calculate new session keys that are never used. IKE has protection against this. Explain how it works.
+
+- In IKE, The server stores the IP address and port numbers in a cookie which must be returned by the client before it starts calculating any keys. This makes sure the receiver has not faked the IP address.
+
+- The cookie is calculated by : hash(IP address, port numbers, secret).
+- A client that requests lots of sessions from the same IP address can be blocked temporarily.
+
+
+
+#### 8. SSL/TLS has a “close session” message which is used when they want to quit. Why is it needed? Why not just tear down the TCP connection instead? TCP already has a mechanism to close connections. 
+

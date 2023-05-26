@@ -39,6 +39,14 @@ A possibility is to try to exhaust the connection table of a receiving host’s 
 - The attacker sends a large number of SYN packets to the target server, but never finishes the TCP three way handshake
 - The target server allocates some resources (memory and state table) and return a [SYN, ACK] message for each SYN message, It may exhaust the server’s internal resources to handle legitimate connection requests
 
+**Mention three different ways to, at least to some extent, protect a system against these attacks.**
+
+1. SYN-cookies where the server does not have to keep state.
+2. Variable time-out: decrease waiting time when needed.
+3. Allocate micro-records and do most of the work when connection completed.
+4. Firewalls can be configured to limit the number of incoming SYN packets per second from a single source IP address 
+5. IDS/IPS solutions can detect and block suspicious traffic patterns indicative of SYN flooding attacks.
+
 **Why SYN cookies offer protection to the system?**
 
 - By using SYN cookies, the server does not need to maintain a state table or allocate resources for each request before the handshake is completed.
@@ -124,13 +132,27 @@ TCP responds with a SYN/ACK to a connection request but UDP just delivers the da
 
 #### 10. The SMURF attack uses ICMP echo packets and is a magnification attack. Explain how it works and how firewalls connected to the Internet should be configured to prevent such attacks.
 
+- The attacker sends ICMP echo request messages to a broadcast address with a victim as the sender.
+- All hosts on the network will send an ICMP echo reply message to the victim, thus one package generates a storm of packets to the victim.
+- To prevent this, Firewall should block all external traffic to broadcast addresses.
 
 
 
+#### 11. What is required by an attacker to do a blind insertion of a packet into an ongoing TCP session? 
+
+In general, an attacker must guess the TCP sequence number since he is ‘blind’ and cannot see the network traffic. It is enough to guess a number that lies within the current window size.
+
+In addition, IP addresses and port numbers must be guessed.
+
+**Assume you are the attacker and you can see that a person in the room connects to a web server which is well-known to you. What do you have to guess to be able to insert a RST packet into the communication and tear down the connection?** 
+
+- In this case, since you know the web server, both the destination IP address and port number are known.
+
+- So the source port number and some bits of the local IP address plus the TCP sequence numbers must be guessed.
 
 
 
-
+#### 12.
 
 
 

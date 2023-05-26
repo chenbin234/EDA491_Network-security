@@ -40,3 +40,15 @@ Subject, issuer, subject’s public key, signature of the issuer, validity/expir
 
 
 
+#### 4. In the picture above, we can see an attack against a Radius server. What is the purpose of this attack? What is it the attacker tries to do? Explain! (20210531 Q2)
+
+The only unknown in the request to the raduis server is the “shared_secret” and it may be possible to do an exhaustive search to find the shared_secret.
+
+#### 5. Can a rainbow table be of help to the attacker in the example above? 
+
+It is not useful since the hash (MD5) contains random data, it is infeasible to create pre-calculated tables for a random data.
+
+
+
+
+

@@ -27,5 +27,16 @@ Smart card is a pocket-sized card that contains an embedded integrated circuit c
 - Kerberos has two types of tickets: TGT - Ticket Granting Ticket, SGT - Service Granting Tickets
 - Cross-realm trust is possible
 
+#### 4. Kerberos is a protocol performing both authentication and authorization. It has some advantages and at least one disadvantage:
 
+ 1: it uses symmetric keys;
 
+ 2: the tickets handed over to the clients contains its internal state;
+
+ 3: however, it requires applications to be Kerberized.
+
+**Explain these concepts and what the advantages and disadvantage mean!**
+
+1. Symmetric keys are easier to work with than asymmetric keys and eliminates complicated calculations.
+2. This makes servers stateless and many servers can share the workload without consulting each other or a common database.
+3. Application servers must understand the ticket concept and how they should be used.

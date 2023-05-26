@@ -8,3 +8,7 @@
    - Role-based access control. Access to resources are based on many factors such as roles, location, device being used, etc.
    - End-point security: check devices.
 
+#### 2. It is becoming increasingly important to help the main border firewall by moving protection to the end points. What are the arguements behind this change? What has happened now that motivates a new way to think when protecting corporate networks? How should we think in the future?
+
+Users are no longer located only inside at the corporate network, 
+

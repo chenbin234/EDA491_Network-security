@@ -52,3 +52,18 @@ SSH supports port forwarding, which enables secure tunneling of network connecti
 
 - the use of certificates that allows for example web browser to verify a server’s identity without prior sharing of a host key as in SSH.
 - TLS is built-in to the applications whereas SSH is a standalone program.
+
+
+
+#### 7. SSH uses a (keyed) MAC which is calculated from the plaintext data to protect against modification. What is the drawback/danger of using with this method?
+
+1. It means that the receiver must decrypt the packet before the MAC can be checked.
+
+2. This is the **“Encrypt-and-MAC”** method which may cause additional work for a receiver if garbage packages are sent to it.
+3. It can also be dangerous if the receiver has to process data packets before it knows they are authentic and correct.
+
+**What other two alternatives to the SSH method above exist? What are the pros and cons of these?**
+
+1. “MAC-then-Encrypt”, the same problem as in SSH
+2. “Encrypt-then-MAC”, It latter offers ciphertext integrity but no plaintext integrity but should not really be a problem.
+

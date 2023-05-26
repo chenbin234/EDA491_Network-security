@@ -14,13 +14,17 @@ It is used to expand short secrets to longer blocks, for example to generate the
 
 $master\_secret = PRF(pre\_master\_secret,\ 'master\ secret',\ r_{c} || r_{s})$
 
+### 3. Why do we often see nonces in security protocols?
+
+To guarantee freshness and prevent replays of old sessions
+
+### 4. Why do we (sometimes) see time stamps in security protocols?
+
+Also to guarantee freshness and prevent replays of older sessions.
 
 
 
+#### 5. How is freshness of data packets guaranteed by the TLS record layer protocol? There are no sequence numbers in the header.
 
-
-
-
-
-
+It uses implicit sequence numbers, i.e. both sides counts numbers of packets and this counter is included when calculate MAC. This ensures that replays are not possible.
 

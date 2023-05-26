@@ -49,7 +49,46 @@ TKIP makes sure encryption keys change over time. It extends the IV (with a new 
 1. 802.1x is port based authentication, where a client does not get access to the network unless authenticated and authorized.
 2. Instead of using a shared key, Users can be authenticated through the radius server using individual secret or token cards such as SecureID.
 
+#### 9. WPA3 guarantees that all session keys are unique for the session and that they are not in any way related to other session keys. However, WPA2 does not have this property. What is this property called? Why is this a good property?
 
+1. The property is called perfect forward secrecy. In a perfect forward secrecy, a compromised session key should not affect other sessions in the past or future. 
+
+2. Therefore, all session have a unique session key.
+
+**Explain how this is normally achieved?**
+
+This is normally achieved by using Diffie-Hellman key agreement to make session keys unique and never reused.
+
+**what “mistake” WPA2 does?**
+
+WPA2 calculates session keys from the master key which is derived from SSID+Password/shared secret (and by an attacker some known random values). If the password is revealed, session keys for all other sessions can be recalculated.
+
+
+
+#### 10. The use of shared keys in for example WLAN authentication is both good and bad. Give one advantage and one disadvantage with using it.
+
+Advantage: 
+
+- shared keys are easy to implement,
+- They involves a pre-shared keys that is known by both access point and the client devices
+- It is convenient for small-scale deployment and home networks
+
+Disadvantage: 
+
+- lack of scalability and flexibility
+- Since the same shared key is among all authorized devices, it is hard to revoke access for specific users
+- If a key is compromised and needs to be changed, it requires updating the key on all devices
+- Also, when different level of access is needed, pre shared keys can not support.
+
+
+
+#### 10. WEP has at least one problem with its handling of IVs. Explain how an attacker may use this weakness! Is this problem likely to occur?
+
+1. WEP allows an IV to be reused. then we will have two packets encrypted with the same key stream.
+2. This means that an XOR operation between the cipher texts will be the same with an XOR between clear texts.
+3. $c1 \bigoplus c2 = (p1 \bigoplus b) \bigoplus (p2 \bigoplus b) = p1 \bigoplus p2$
+
+4. Since the IV is only a 24-bit value, a busy AP is very likely to reuse IVs.
 
 
 

@@ -81,5 +81,25 @@ It does not inspect traffic that is allowed to traverse.
 
 
 
+### 9. Circuit-level gateways/proxies remove all headers and replace them with new fresh headers to make sure packet modification attacks do not work.
+
+False, circuit-level gateways work on transport layer, application level header are not touched.
 
 
+
+### 10. A stateful firewall must maintain a list of filter rules and also a state table. Give an example of what the state table should contain for TCP and UDP traffic!
+
+1. TCP: port numbers of communicating parties, TCP sequence numbers, TCP state.
+
+2. UDP: port numbers, a timer for when to terminate the connection.
+
+
+
+### 11. a stateless screening router as a firewall vs. a NAT gateway to secure your home network
+
+- The stateless firewall can inspect contents of packets, including some application-layer protocol but will not see the relation between packets and can not check TCP sequence numbers, for example. It will not be very secure and it may cause some security problems.
+- The NAT gateway on the other hand will only give access to the systems listed in the translation table. However, it does not inspect allowed traffic at all.
+
+
+
+#### 12. 

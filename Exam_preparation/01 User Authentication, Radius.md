@@ -74,3 +74,11 @@ To implement user authentication without having to keep its own database.
 
 
 
+#### 9.  Assume that a server which wants to authenticate a user (a client) over a network is designed to request the client to encrypt the username + password with the server’s public key and send it to the server. The private key is at all times kept secret and the encryption algorithm cannot easily be broken. Is this a good solution or not? Explain!
+
+What is sent over the network is encrypted, but it can be used in replay attacks by an attacker.
+
+Nothing makes it unique and can be used over and over again.
+
+
+

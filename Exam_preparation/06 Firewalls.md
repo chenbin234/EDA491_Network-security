@@ -207,3 +207,38 @@ If the numbers are predictable, it is much easier for attackers to insert valid 
 
 
 
+#### 19. If you are given the task to test whether a firewall is stateful or not, how would you do this? Describe what test you would perform and the expected result! Explain clearly why this test would work!
+
+We could do an ACk or FIN scan. All normal systems respond with a RST packet to the non-matching ACKs.
+
+A reply from a system behind the firewall means that the firewall did not keep state and had to forward the ACK to the inside. A stateful firewall would silently drop the packet.
+
+
+
+#### 20. Describe briefly how a stateful firewall works! What information does the firewall (at least) need to save for TCP connections?
+
+Source and destination IP address, source and destination ports.
+
+The firewall must also keep track the TCP state and TCP sequence numbers.
+
+(Real firewall store more info but these info is at least needed for a firewall to be called stateful)
+
+
+
+#### 21. What is a DMZ and what purpose does it have?
+
+It is a dedicated network outside the internal network which hosts external services, such as web servers, mail servers and other systems offering services to the outside world.
+
+Purpose is to avoid forwarding traffic to public servers to the internal network.
+
+
+
+#### 22. Firewalls must be able to handle UDP traffic, but there is a fundamental problem with it that does not exist for TCP traffic. 
+
+1. Unlike TCP, there are no sessions to keep track of and no sequence numbers.
+2. One outgoing datagram may result in one or more replies from the outside.
+
+**How can a firewall handle UDP connections from the “inside” to the “outside”? Is this a good (secure) solution? Assume that the firewall does not understand the application level, thus cannot inspect these datagrams and the replies.**
+
+When a request packet is sent out from the trusted side, it can allows replies from the outside, but only from the same host and port number that received the first packet and only for a limited time period.
+

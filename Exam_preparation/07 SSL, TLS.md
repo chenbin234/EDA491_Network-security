@@ -92,3 +92,11 @@ Each round trip takes time and introduce a delay.
 
 It is achieved by letting the client guess what cipher suites the server accepts and what will be used. If the guess is correct, the negotiation can skip one step.
 
+
+
+#### 13. TLS consists of several protocols. Describe the functionality of the record layer, change cipher and handshake protocols (see picture on the last page).
+
+1. Record layer protocol performs fragmentation -> compression -> adding MAC -> encryption
+1. Change cipher protocol tell the other side to change to change to the last security parameters negotiated.
+1. The alert protocol sends warning s and error messages to the other side.
+1. The handshake protocol negotiates ciphers, keys and performs authentication.

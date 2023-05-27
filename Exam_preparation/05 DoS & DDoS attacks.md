@@ -152,7 +152,16 @@ In addition, IP addresses and port numbers must be guessed.
 
 
 
-#### 12.
+#### 12. The goal of some DoS attacks is to try to exhaust the resources of the target, for example memory, internal tables, network, or the CPU. Briefly describe two possible DoS attacks targeting different resources and what weaknesses they make use of!
+
+- SYN attack, exhausts connection table
+- repested requests for encrypted TLS connection (CPU exhausted)
+
+
+
+
+
+
 
 
 

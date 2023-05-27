@@ -39,3 +39,16 @@ An oversized IP datagram can be created that exceeds this size by sending a frag
 
 
 
+#### 5. Some protocols are vulnerable against reflection attacks as shown in the figure, What is meant with a reflection attack? Explain how this attack works and how it can be avoided!
+
+
+
+
+
+
+
+#### 6. The possibility to fragment IP datagrams has shown to be problematic. Describe two different problems or attacks which exploits fragmentation and explain how they work!
+
+- Fragment reassembly Dos: send only one fragment per datagram, making the receiver allocate buffer space for the full datagram.
+- Fragment ID reveals information (OS fingerprinting)
+- Send oversized datagram using fragments.

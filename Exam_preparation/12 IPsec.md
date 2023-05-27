@@ -38,3 +38,22 @@ It protects against replay attacks by discarding duplicates, but unlike TCP, it 
 In tunnel mode, it is not the final receiver of the datagram that should receive the encrypted datagram but a IPsec gateway that decrypts it and forwards it to its final destination.
 
 Tunnel mode is often used for site-to-site encryption. it is to create a secure tunnel between two IPsec gateways.
+
+
+
+#### 7. On the last page, there is a picture of an IPsec header. Explain what the next header, SPI and padding fields are used for and what purposes they have!
+
+**The SPI** is an index that tells what SA (security association) should be used, i.e. a pointer to a data structure containing info about the type of connection, keys used, etc.
+
+**Next header** tells what upper layer protocol should receive this data.
+
+**Padding**: to disguise to an attacker the actual amount of data being transmitted.
+
+
+
+#### 8. In the course, we discussed three different ways to add MACs: MAC-then-encrypt, Encrypt-and-MAC and Encrypt-then-MAC, see the picture below. There are some pros and cons with each solution. IPsec uses the last method (Encrypt-then- MAC). Give an argument for or against Encrypt-then-MAC when compared to the other. Motivate clearly why this is (or is not) advantageous!
+
+- Encrypt-then-MAc makes it possible to check the integrity of the datagram before sending it for decryption.
+
+- It both saves processing time but also prevents attacks against the crypto-engine with specially crafted datagram.
+

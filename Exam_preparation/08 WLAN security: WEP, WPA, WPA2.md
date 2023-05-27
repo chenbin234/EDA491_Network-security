@@ -107,3 +107,25 @@ Disadvantage:
 
 
 
+#### 13. Explain how encryption of data traffic is done in WEP! A figure together with explaining text is needed. You need to show how encryption is done including input and output to the system.
+
+??
+
+
+
+#### 14. WEP is not known for its good security. Describe two vulnerabilities or possible attacks against it!
+
+1. Same key for authentication and encryption
+2. All session and devices use the same key
+3. CRC, not HMAC, with stream cipher allows modification
+4. RC4 with weak keys. After collecting enough traffic, key search is possible.
+5. No nonces, no sequence numbers, replay attack is possible
+6. Too short IV space, reused IVs can be used to decrypt data
+7. one known plaintext/ciphertext reveals key stream for IV which can be used forever to transmitted data.
+
+
+
+
+
+
+

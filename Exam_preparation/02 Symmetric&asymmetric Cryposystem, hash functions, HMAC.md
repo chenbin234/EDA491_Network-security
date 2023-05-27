@@ -39,3 +39,26 @@ factorization of large prime numbers is hard. (the discrete logarithm problem)
 
 
 
+#### 5. Even if we encrypt network traffic with the best cipher available, it is still possible to change the contents and also to replay the packets. How can this be solved?
+
+1. We should use cryptographic hashes (such as HMAC) to protect the packet from modification
+
+2. And add freshness guarantees, for example by using sequence numbers or timestamps.
+
+
+
+#### 6. Some protocols create four or more keys from a Master secret, for example a Server write key, Client write key, Server MAC key and a Client MAC key. What is the purpose of all these keys?Why so many and not just one “encryption key”?
+
+1. Client and Server write keys are used to encrypt messages.
+2. Client and Server MAC keys are used to create secure hash (i.e. HMAC) to ensure the message integrity.
+3. The use of multiple keys derived from a master key enhances security.
+
+
+
+#### 7. What makes hash functions such as MD5, SHA-2, etc. fundamentally different from a CRC when protecting message integrity?
+
+1. A message that is protected by a keyed hash cannot be modified without having access to the full input, i.e. the key and the message.
+2. With a CRC, it is possible to change parts of the message and predict what to change in CRC without known the original message, even if the message is encrypted.
+
+
+

@@ -58,3 +58,19 @@ A major weakness is  that an attacker can see both the challenge and the clearte
 
 Another weakness is that the server needs to store the passwords in cleartext.
 
+
+
+#### 7. The Radius protocol is used in the Eduroam system. Why do you think it was selected? Is this a good choice?
+
+1. Radius offers user authentication , thus the AP does not have to keep track of username and their passwords.
+2. It is also organized in a tree structure which makes it easy to connect different subtrees together (countries and organizations).
+3. This is a good example of where usability was prioritized and security to some extent was sacrificed.
+
+
+
+#### 8. What is the reason lots of link layer devices such as access points (APs) support Radius? What advantage do they get from it?
+
+To implement user authentication without having to keep its own database.
+
+
+

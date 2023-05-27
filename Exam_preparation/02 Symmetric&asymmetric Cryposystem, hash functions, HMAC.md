@@ -25,3 +25,17 @@
 
 
 
+#### 3. What fundamental mathematical property is Diffie-Hellman based on?
+
+factorization of large prime numbers is hard. (the discrete logarithm problem)
+
+
+
+#### 4. Encrypting traffic is not enough to guarantee freshness. Explain why not! Also mention two different ways to guarantee freshness!
+
+- Encryption only ensure that the contents of the message remain confidential during the transmission but does not address the issue of freshness or prevent replay attacks.
+
+- Timestamp, sequence numbers, nonces
+
+
+

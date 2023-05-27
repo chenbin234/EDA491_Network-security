@@ -74,3 +74,12 @@ Goal can be to become a man in the middle.
 
 
 
+#### 10. Some more advanced switches may have more “intelligent” functionality than a plain dumb €10 switch and can prevent some link layer attacks. VLAN technology can be one such functionality, but describe two other possible functions they can have and explain what attacks they protect against!
+
+1. Limit number of MAC addresses per port - protects against MAC address flooding which may force a switch to broadcast all packets to all ports.
+2. Trusted port - limit what ports are allowed to answer, for example, DHCP requests.
+3. Lock MAC addresses to ports
+4. Functionality to detect IP address spoofing (MAC-IP monitoring)
+
+
+

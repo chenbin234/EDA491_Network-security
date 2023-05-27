@@ -183,3 +183,27 @@ When an SYN/ACK is seen (from 1.2.3.4), the state table is directly consulted an
 
 
 
+#### 16. (202108 Q4) Now they want to add another access point for visitors coming to the office and consider placing it at one of the positions (a), (b) or (c). The visitors should only be offered Internet access. Where would you place it?
+
+1. (a) is the most secure location since the firewall can inspect the traffic and also make sure all traffic goes to the Internet.
+2. (b) is not good since it allows visitors to listen to the in- and outgoing traffic to the company.
+3. (c) may allow visitors to monitor all traffic to the web server.
+
+
+
+#### 17. Some port scans can be used to get information about the firewall that protects a system. Give an example and explain!
+
+If a ACK or a FIN scan works through a firewall, it has to be stateless since it does not know whether the ACk or FIN packet belongs to a valid session or not.
+
+A stateful firewall would drop it unless the message is valid.
+
+
+
+#### 18. Randomizing TCP sequence numbers is good from a security perspective. Why? What problem does it address?
+
+It makes blind TCP guessing attacks much harder. 
+
+If the numbers are predictable, it is much easier for attackers to insert valid data packets into the existing TCP stream.
+
+
+

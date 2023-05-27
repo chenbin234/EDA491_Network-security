@@ -48,3 +48,21 @@ Smart card is a pocket-sized card that contains an embedded integrated circuit c
 When a user initially authenticates with the kerberos server, the server generates a TGT (Ticket Granting Ticket) for the user, the TGT is a long-lived ticket that is used to obtain SGT (Service Granting Ticket) without re-authenticating for a certain period of time. 
 
 The TGT contains the user’s indetity,  timestamp, and is encrypted with the user’s long-term key and password, It is encrypted by the server and cannot be decrypted by anyone else.
+
+
+
+#### 6. The real Kerberos protocol adds time stamps to the messages. There are at least two reasons for this. Please explain!
+
+1. **Ensure the freshness of authentication message:** By introducing a timestamp, the receiver can verify that the message is recent and not a replay of an old message
+
+2. **protection against replay attacks:** By comparing the timestamp with the receiver system’s internal clock and determine whether the message is expired or not.
+
+
+
+#### 7. Kerberos can create session crypto keys to two parties who want to communicate. Why is it better to have the Kerberos server to do this than having the parties do it themselves?
+
+- The Kerberos  server can create symmetric session keys which is easy to do (just random numbers) which can be sent securely since it shares a secret with both the client and the application server.
+- If the two parties do exchange session keys themself, they need to do Diffie-Hellman calculations to agree on a key.
+
+
+

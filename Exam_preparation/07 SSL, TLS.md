@@ -56,3 +56,39 @@ It can lead to a potential security known as “Man-In-The-Middle” attack.
 
 #### 8. SSL/TLS has a “close session” message which is used when they want to quit. Why is it needed? Why not just tear down the TCP connection instead? TCP already has a mechanism to close connections. 
 
+To prevent truncation attacks. 
+
+We don’t want an attacker (for example a MITM) to be able to prematurely terminate a connection between the client and the server by faking a FIN in each direction. This could result in both sides believing that all data has been sent and received.
+
+
+
+#### 9.SSL/TLS has both master and session keys. What is the difference? How are they related? When are they created?
+
+- The master key is derived from key negotiation process during connection setup, it is used to create session keys.
+- Session keys are used for data encryption and creating MACs, session keys are changed regularly.
+
+
+
+#### 10. IPsec has a field “Next Header” as shown on the last page, which tells what upper layer protocol should receive the datagram. IP has a field called “Protocol” with the same purpose. Why does IPsec not use that field?
+
+When IPsec encrypts a datagram, it replaces the receiving upper layer protocol in IP with its own number and place the original content in its Next Header field.
+
+This means that the receiver in the other end will be IPsec, and when it decrypts the datagram it can restore the original received field in IP datagram.
+
+
+
+#### 11. Padding is an option present in many security protocols and can be used to make all datagrams of the same size (or of random size). Is this really needed? Give an example of when the absence of padding could be useful for an attacker!
+
+Padding can help prevent attackers from deducing information about the plaintext message by analyzing the length or patterns in the ciphertext.
+
+1. Access to a web server could reveal what pages the user is accessing by observing the amount of data being transferred.
+2. Another example was in WEP where it was possible to identify ARP messages which could be exploited to inject own messages.
+
+
+
+#### 12. In the latest version of TLS, session establishment is faster due to the introduction of one- round-trip-time negotiation. Why is this faster? How is this possible?
+
+Each round trip takes time and introduce a delay.
+
+It is achieved by letting the client guess what cipher suites the server accepts and what will be used. If the guess is correct, the negotiation can skip one step.
+

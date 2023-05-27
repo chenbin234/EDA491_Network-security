@@ -92,3 +92,18 @@ Disadvantage:
 
 
 
+#### 11. Both WEP and WPA2 uses IVs when encrypting data packets. Why? What would happen if there were no IVs present in the packets?
+
+1. The IVs guarantees that different key streams are created for each packet.
+2. Without IVs, the same key streams would always be used, thus XORing two ciphertext would the same as XORing these two cleartext.
+3. Also, identifical dtagrams would always have the same crypto text.
+
+
+
+#### 12. The first message in WEP is the 128-byte random challenge that authenticates the client. Why is this mechanism flawed?
+
+1. It uses the same method for encryption as is used later for packet encryption.
+2. An attacker listening to the authentication procedure can see both the challenge and the encrypted challenge. By XORing them with each other, the 128-Byte ksy stream is obtained which can be used to transmitted own message through the AP.
+
+
+

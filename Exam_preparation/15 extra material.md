@@ -60,6 +60,14 @@ Send DNS request with faked victim addresses, some DNS server can reply lots of 
 
 
 
+#### 4. RST attack
+
+1. The attacker sends a spoofed TCP RST packets to one or both endpoints of an established TCP connection
+
+2. These RST packets contain the appropriate sequence and acknowledge numbers, making them appear as legitimate packets.
+3. When the receiver check the spoofed packets,  it interprets it as a request to terminate the connection and immediately closes the connection.
 
 
-a
+
+#### 5. kerberos
+

@@ -17,7 +17,9 @@
 
 #### 2. Fragmentation of IP packets is a well-known problem for firewalls since they may not know how the receiving host will reassemble the datagram. Please give a longer explanation for why this is problematic!
 
-If the firewall does not know how the end host will reassemble overlapping datagrams, it will either be making mistakes or it has to try all possible combinations, but this is resource consuming and probably not realistic to do.
+If the fir
+
+ will either be making mistakes or it has to try all possible combinations, but this is resource consuming and probably not realistic to do.
 
 **What could a solution to this problem be?**
 
